@@ -1,4 +1,4 @@
-# !/usr/bin/python
+#!/usr/bin/python
 # -*- coding:utf-8 -*-
 
 import os
@@ -6,6 +6,7 @@ import time
 import rospy
 import rosbag
 from sensor_msgs.msg import PointCloud2
+from common_msgs.msg import AttrMsg
 
 
 class LidarRecorder(object):
@@ -19,8 +20,7 @@ class LidarRecorder(object):
     def close(self):
         self._bag_writer.close()
 
-
-
-
-class App(object):
-    rospy.init_node("Data_bag_collector")
+if __name__ == '__main__':
+    rospy.init_node("collector")
+    print("hello")
+    rospy.spin()

@@ -1,0 +1,4 @@
+<launch>
+    <node pkg="test_data_collect" type="collector.py" name="test_data_collect" output="screen">
+    </node>
+</launch>
