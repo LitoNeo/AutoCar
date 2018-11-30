@@ -1,0 +1,8 @@
+prefix=/home/yunle/ws/src/AutoCar/Localization/fast_ndt_slam/cmake-build-debug/devel
+
+Name: fast_ndt_slam
+Description: Description of fast_ndt_slam
+Version: 0.0.0
+Cflags: -I/home/yunle/ws/src/AutoCar/Localization/fast_ndt_slam/include
+Libs: -L/home/yunle/ws/src/AutoCar/Localization/fast_ndt_slam/cmake-build-debug/devel/lib -lfast_ndt_slam
+Requires: nav_msgs roscpp tf sensor_msgs std_msgs geometry_msgs pcl_conversions ndt_gpu

@@ -1,0 +1,8 @@
+prefix=/home/yunle/ws/src/AutoCar/Percision/LidarLaneDetect/cmake-build-debug/devel
+
+Name: LidarLaneDetect
+Description: Description of LidarLaneDetect
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/yunle/ws/src/AutoCar/Percision/LidarLaneDetect/cmake-build-debug/devel/lib 
+Requires: 

@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/yunle/ws/src/AutoCar/Localization/fast_ndt_slam/cmake-build-debug/devel/setup.sh

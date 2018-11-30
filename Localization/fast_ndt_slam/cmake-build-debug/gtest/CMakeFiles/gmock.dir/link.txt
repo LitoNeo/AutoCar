@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC   -g   -shared -Wl,-soname,libgmock.so -o libgmock.so CMakeFiles/gmock.dir/usr/src/gtest/src/gtest-all.cc.o CMakeFiles/gmock.dir/src/gmock-all.cc.o  -L/home/yunle/ws/src/AutoCar/Localization/fast_ndt_slam/src/lib -Wl,-rpath,/home/yunle/ws/src/AutoCar/Localization/fast_ndt_slam/src/lib -lpthread 
