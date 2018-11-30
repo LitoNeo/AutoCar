@@ -1,4 +1,5 @@
 <launch>
     <node pkg="test_data_collect" type="collector.py" name="test_data_collect" output="screen">
+        <param name="~file_path" type="str" value="/home/yunle/Documents/data"/>
     </node>
 </launch>
