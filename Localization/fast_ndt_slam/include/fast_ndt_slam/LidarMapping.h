@@ -95,9 +95,9 @@ namespace FAST_NDT {
     	  LidarMap::Ptr globalMap;
     	  LidarMap::Ptr localMap;
 #ifdef CUDA_FOUND
-        gpu::GNormalDistributionsTransform ndt;
+        gpu::GNormalDistributionsTransform gpu_ndt;
 #else
-        pcl::NormalDistributionsTransform<PointT, PointT> ndt;
+        pcl::NormalDistributionsTransform<PointT, PointT> pcl_ndt;
 #endif
         Pose previous_pose;
         Pose guess_pose;

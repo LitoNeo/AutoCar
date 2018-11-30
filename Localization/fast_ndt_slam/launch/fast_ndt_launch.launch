@@ -14,6 +14,6 @@
     <param name="tf_yaw" value="$(arg init_yaw)"/>
 
     <node pkg="fast_ndt_slam" type="fast_ndt_slam_node" name="fast_ndt_slam_node" output="screen">
-        <remap from="lidar" to="/velodyne_points" />
+        <remap from="/velodyne_points" to="/velodyne_points" />
     </node>
 </launch>
