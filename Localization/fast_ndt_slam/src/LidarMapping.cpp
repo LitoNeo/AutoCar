@@ -3,11 +3,9 @@
 //
 
 #include "../include/fast_ndt_slam/LidarMapping.h"
-#include <iomanip>
-#include <fstream>
+#include <common_msgs/AttrMsg.h>
 
 namespace FAST_NDT {
-
 	void LidarMapping::setup(ros::NodeHandle &handle, ros::NodeHandle &privateHandle) {
 		// initial set.
 		handle.param<double>("tf_x", current_pose.x, 0);
@@ -24,12 +22,12 @@ namespace FAST_NDT {
 		ROS_INFO("tf_x, tf_y, tf_z, tf_roll, tf_pitch, tf_yaw (%.4f, %.4f, %.4f, %.4f, %.4f, %.4f)", current_pose.x, current_pose.y, current_pose.z, current_pose.roll, current_pose.pitch, current_pose.yaw);
 		globalMap->pose = current_pose;
 		localMap->pose = current_pose;
-
 		ndt_map_pub = handle.advertise<sensor_msgs::PointCloud2>("/ndt/map", 10000);
 		current_pose_pub = handle.advertise<geometry_msgs::PoseStamped>("/current_pose", 1000);
 
 		points_sub = handle.subscribe("/velodyne_points", 100000, &LidarMapping::points_callback, this);
 		// output_sub = handle.subscribe("/ndt_mapping_output", 10, &LidarMapping::output_callback, this);
+		attr_pub = handle.advertise<common_msgs::AttrMsg>("NDT_attrMsg",1);
 
 	}
 
@@ -69,7 +67,7 @@ namespace FAST_NDT {
 			p.x = static_cast<float>((double) item->x);
 			p.y = static_cast<float>((double) item->y);
 			p.z = static_cast<float>((double) item->z);
-			double r = sqrt(p.x * p.x + p.y * p.y);
+			double r = std::sqrt(p.x * p.x + p.y * p.y);
 			if (min_scan_range < r && r < max_scan_range) {
 				scan.push_back(p);
 			}
@@ -181,6 +179,14 @@ namespace FAST_NDT {
 		ROS_INFO("Number of Iterations %d", final_num_iteration);
 		ROS_INFO("(x, y, z, roll, pitch, yaw): (%.4f, %.4f, %.4f, %.4f, %.4f, %.4f)", current_pose.x, current_pose.y, current_pose.z, current_pose.roll, current_pose.pitch, current_pose.yaw);
 		ROS_INFO("Shift %.4f", shift);
+
+
+		// #start 发布NDT性能相关的参数
+		common_msgs::AttrMsg attrMsg;
+		attrMsg.name = "ndt_attr";
+		attrMsg.UsedTime = float((t2 - t1) / 1000000.);
+		attr_pub.publish(attrMsg);
+		// #end
 
 		// 定义并发布位置Pose
 		geometry_msgs::PoseStamped pose;

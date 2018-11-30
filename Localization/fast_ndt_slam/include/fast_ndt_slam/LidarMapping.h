@@ -123,6 +123,7 @@ namespace FAST_NDT {
         // publisher
         ros::Publisher current_pose_pub;
         ros::Publisher ndt_map_pub;
+        ros::Publisher attr_pub;  // 用于发布ndt性能的消息
         // subscriber
         ros::Subscriber points_sub;
         ros::Subscriber output_sub;

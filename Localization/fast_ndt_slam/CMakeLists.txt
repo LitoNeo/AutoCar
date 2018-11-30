@@ -28,9 +28,9 @@ find_package(catkin REQUIRED COMPONENTS
 		tf
   std_msgs
 		geometry_msgs
+		common_msgs
 #  velodyne_pointcloud
 )
-
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
 
@@ -82,7 +82,7 @@ catkin_package(
   INCLUDE_DIRS include
   LIBRARIES fast_ndt_slam
   CATKIN_DEPENDS nav_msgs roscpp tf sensor_msgs std_msgs geometry_msgs pcl_conversions ndt_gpu
-#		ndt_gpu ndt_cpu pcl_omp_registration velodyne_pointcloud
+# ndt_cpu pcl_omp_registration velodyne_pointcloud
 )
 
 ###########
@@ -128,6 +128,8 @@ add_executable(${PROJECT_NAME}_node src/fast_ndt_slam_node.cpp ${SRC_LIST})
 # add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
+add_dependencies(${PROJECT_NAME}_node common_msgs_gencpp)
+
 target_link_libraries(${PROJECT_NAME}_node ${catkin_LIBRARIES} ${PCL_LIBRARIES} )
 if (CUDA_FOUND)
 	target_link_libraries(${PROJECT_NAME}_node ndt_gpu) #这里的align改成你的app
