@@ -181,6 +181,45 @@ fast_ndt_slam_node/fast:
 .PHONY : fast_ndt_slam_node/fast
 
 #=============================================================================
+# Target rules for targets named common_msgs_generate_messages_lisp
+
+# Build rule for target.
+common_msgs_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 common_msgs_generate_messages_lisp
+.PHONY : common_msgs_generate_messages_lisp
+
+# fast build rule for target.
+common_msgs_generate_messages_lisp/fast:
+	$(MAKE) -f CMakeFiles/common_msgs_generate_messages_lisp.dir/build.make CMakeFiles/common_msgs_generate_messages_lisp.dir/build
+.PHONY : common_msgs_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named common_msgs_generate_messages_eus
+
+# Build rule for target.
+common_msgs_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 common_msgs_generate_messages_eus
+.PHONY : common_msgs_generate_messages_eus
+
+# fast build rule for target.
+common_msgs_generate_messages_eus/fast:
+	$(MAKE) -f CMakeFiles/common_msgs_generate_messages_eus.dir/build.make CMakeFiles/common_msgs_generate_messages_eus.dir/build
+.PHONY : common_msgs_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named common_msgs_generate_messages_cpp
+
+# Build rule for target.
+common_msgs_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 common_msgs_generate_messages_cpp
+.PHONY : common_msgs_generate_messages_cpp
+
+# fast build rule for target.
+common_msgs_generate_messages_cpp/fast:
+	$(MAKE) -f CMakeFiles/common_msgs_generate_messages_cpp.dir/build.make CMakeFiles/common_msgs_generate_messages_cpp.dir/build
+.PHONY : common_msgs_generate_messages_cpp/fast
+
+#=============================================================================
 # Target rules for targets named tf2_msgs_generate_messages_nodejs
 
 # Build rule for target.
@@ -335,6 +374,19 @@ std_msgs_generate_messages_lisp: cmake_check_build_system
 std_msgs_generate_messages_lisp/fast:
 	$(MAKE) -f CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make CMakeFiles/std_msgs_generate_messages_lisp.dir/build
 .PHONY : std_msgs_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named common_msgs_generate_messages_nodejs
+
+# Build rule for target.
+common_msgs_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 common_msgs_generate_messages_nodejs
+.PHONY : common_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+common_msgs_generate_messages_nodejs/fast:
+	$(MAKE) -f CMakeFiles/common_msgs_generate_messages_nodejs.dir/build.make CMakeFiles/common_msgs_generate_messages_nodejs.dir/build
+.PHONY : common_msgs_generate_messages_nodejs/fast
 
 #=============================================================================
 # Target rules for targets named nav_msgs_generate_messages_eus
@@ -686,6 +738,19 @@ nav_msgs_generate_messages_nodejs: cmake_check_build_system
 nav_msgs_generate_messages_nodejs/fast:
 	$(MAKE) -f CMakeFiles/nav_msgs_generate_messages_nodejs.dir/build.make CMakeFiles/nav_msgs_generate_messages_nodejs.dir/build
 .PHONY : nav_msgs_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named common_msgs_generate_messages_py
+
+# Build rule for target.
+common_msgs_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 common_msgs_generate_messages_py
+.PHONY : common_msgs_generate_messages_py
+
+# fast build rule for target.
+common_msgs_generate_messages_py/fast:
+	$(MAKE) -f CMakeFiles/common_msgs_generate_messages_py.dir/build.make CMakeFiles/common_msgs_generate_messages_py.dir/build
+.PHONY : common_msgs_generate_messages_py/fast
 
 #=============================================================================
 # Target rules for targets named actionlib_msgs_generate_messages_lisp
@@ -1088,6 +1153,9 @@ help:
 	@echo "... install/local"
 	@echo "... edit_cache"
 	@echo "... fast_ndt_slam_node"
+	@echo "... common_msgs_generate_messages_lisp"
+	@echo "... common_msgs_generate_messages_eus"
+	@echo "... common_msgs_generate_messages_cpp"
 	@echo "... tf2_msgs_generate_messages_nodejs"
 	@echo "... tf2_msgs_generate_messages_lisp"
 	@echo "... tf2_msgs_generate_messages_eus"
@@ -1103,6 +1171,7 @@ help:
 	@echo "... install"
 	@echo "... std_msgs_generate_messages_lisp"
 	@echo "... install/strip"
+	@echo "... common_msgs_generate_messages_nodejs"
 	@echo "... nav_msgs_generate_messages_eus"
 	@echo "... geometry_msgs_generate_messages_eus"
 	@echo "... actionlib_msgs_generate_messages_py"
@@ -1131,6 +1200,7 @@ help:
 	@echo "... roscpp_generate_messages_lisp"
 	@echo "... nav_msgs_generate_messages_lisp"
 	@echo "... nav_msgs_generate_messages_nodejs"
+	@echo "... common_msgs_generate_messages_py"
 	@echo "... actionlib_msgs_generate_messages_lisp"
 	@echo "... tf2_msgs_generate_messages_py"
 	@echo "... actionlib_msgs_generate_messages_nodejs"

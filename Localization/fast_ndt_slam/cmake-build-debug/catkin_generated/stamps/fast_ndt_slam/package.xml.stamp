@@ -86,6 +86,8 @@
   <!--<exec_depend>velodyne_pointcloud</exec_depend>-->
   <exec_depend>tf</exec_depend>
 
+  <build_depend>common_msgs</build_depend>
+  <exec_depend>common_msgs</exec_depend>
 
   <!-- The export tag contains other, unspecified, tags -->
   <export>
