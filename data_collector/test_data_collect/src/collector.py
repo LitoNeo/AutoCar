@@ -62,7 +62,7 @@ class APP(object):
             exit(1)
 
     def _add_sub(self):
-        self.lidar_sub = rospy.Subscriber("/lidar", PointCloud2, self._lidar_cb)
+        # self.lidar_sub = rospy.Subscriber("/lidar", PointCloud2, self._lidar_cb)
         self.myTest_sub = rospy.Subscriber("/NDT_attr", AttrMsg, self._myTest_cb)
 
     def _lidar_cb(self, msg):
