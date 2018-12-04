@@ -96,6 +96,7 @@ namespace FAST_NDT {
     	  LidarMap::Ptr localMap;
 #ifdef CUDA_FOUND
         gpu::GNormalDistributionsTransform gpu_ndt;
+        std::shared_ptr<gpu::GNormalDistributionsTransform> gpu_ndt_ptr = std::make_shared<gpu::GNormalDistributionsTransform>();
 #else
         pcl::NormalDistributionsTransform<PointT, PointT> pcl_ndt;
 #endif

@@ -77,7 +77,8 @@ namespace FAST_NDT {
 			pcl::transformPointCloud(scan, *transformed_scan_ptr, current_pose.rotateRPY());
 			*(localMap->map_ptr) += scan;
 	#ifdef CUDA_FOUND
-			gpu_ndt.setInputTarget(localMap->map_ptr);
+//			gpu_ndt.setInputTarget(localMap->map_ptr);
+			gpu_ndt_ptr->setInputTarget(localMap->map_ptr);
 	#else
 			pcl_ndt.setInputTarget(localMap->map_ptr);
 	#endif
@@ -93,11 +94,19 @@ namespace FAST_NDT {
 		voxel_grid_filter.setInputCloud(scan_ptr);
 		voxel_grid_filter.filter(*filtered_scan_ptr);
 	#ifdef CUDA_FOUND
-		gpu_ndt.setTransformationEpsilon(trans_eps);
-		gpu_ndt.setMaximumIterations(maxIter);
-		gpu_ndt.setStepSize(step_size);
-		gpu_ndt.setResolution(ndt_res);
-		gpu_ndt.setInputSource(filtered_scan_ptr);
+		// use gpu_ndt
+//		gpu_ndt.setTransformationEpsilon(trans_eps);
+//		gpu_ndt.setMaximumIterations(maxIter);
+//		gpu_ndt.setStepSize(step_size);
+//		gpu_ndt.setResolution(ndt_res);
+//		gpu_ndt.setInputSource(filtered_scan_ptr);
+
+		// use make_shared gpu_ndt_ptr
+		gpu_ndt_ptr->setTransformationEpsilon(trans_eps);
+		gpu_ndt_ptr->setMaximumIterations(maxIter);
+		gpu_ndt_ptr->setStepSize(step_size);
+		gpu_ndt_ptr->setResolution(ndt_res);
+		gpu_ndt_ptr->setInputSource(filtered_scan_ptr);
 	#else
 		pcl_ndt.setTransformationEpsilon(trans_eps);
 		pcl_ndt.setMaximumIterations(maxIter);
@@ -118,13 +127,21 @@ namespace FAST_NDT {
 		double t1 = ros::Time::now().toNSec();
 		pcl::PointCloud<PointT>::Ptr output_cloud(new pcl::PointCloud<PointT>());
 	#ifdef CUDA_FOUND
+		// use gpu_ndt
 		gpu_ndt.align(init_guess);
-
-		double fitness_score = gpu_ndt.getFitnessScore();
-		Eigen::Matrix4f finalTrans = gpu_ndt.getFinalTransformation();
-		bool has_converged = gpu_ndt.hasConverged();
-		int final_num_iteration = gpu_ndt.getFinalNumIteration();
+//		double fitness_score = gpu_ndt.getFitnessScore();
+//		Eigen::Matrix4f finalTrans = gpu_ndt.getFinalTransformation();
+//		bool has_converged = gpu_ndt.hasConverged();
+//		int final_num_iteration = gpu_ndt.getFinalNumIteration();
 	//	double transformation_probability = pcl_ndt.getTransformationProbability();
+
+		// use gpu_ndt_ptr
+		// use gpu_ndt_ptr
+		gpu_ndt_ptr->align(init_guess);
+		double fitness_score = gpu_ndt_ptr->getFitnessScore();
+		Eigen::Matrix4f finalTrans = gpu_ndt_ptr->getFinalTransformation();
+		bool has_converged = gpu_ndt_ptr->hasConverged();
+		int final_num_iteration = gpu_ndt_ptr->getFinalNumIteration();
 	#else
 		pcl_ndt.align(*output_cloud, init_guess);
 		double fitness_score = pcl_ndt.getFitnessScore();
@@ -154,7 +171,8 @@ namespace FAST_NDT {
 		if (shift >= min_add_scan_shift) { // update the map
 			*(localMap->map_ptr) += *transformed_scan_ptr;
 	#ifdef CUDA_FOUND
-			gpu_ndt.setInputTarget(localMap->map_ptr);
+//			gpu_ndt.setInputTarget(localMap->map_ptr);
+			gpu_ndt_ptr->setInputTarget(localMap->map_ptr);
 	#else
 			pcl_ndt.setInputTarget(localMap->map_ptr);
 	#endif
