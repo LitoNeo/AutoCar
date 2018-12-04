@@ -128,14 +128,13 @@ namespace FAST_NDT {
 		pcl::PointCloud<PointT>::Ptr output_cloud(new pcl::PointCloud<PointT>());
 	#ifdef CUDA_FOUND
 		// use gpu_ndt
-		gpu_ndt.align(init_guess);
+//		gpu_ndt.align(init_guess);
 //		double fitness_score = gpu_ndt.getFitnessScore();
 //		Eigen::Matrix4f finalTrans = gpu_ndt.getFinalTransformation();
 //		bool has_converged = gpu_ndt.hasConverged();
 //		int final_num_iteration = gpu_ndt.getFinalNumIteration();
 	//	double transformation_probability = pcl_ndt.getTransformationProbability();
 
-		// use gpu_ndt_ptr
 		// use gpu_ndt_ptr
 		gpu_ndt_ptr->align(init_guess);
 		double fitness_score = gpu_ndt_ptr->getFitnessScore();
