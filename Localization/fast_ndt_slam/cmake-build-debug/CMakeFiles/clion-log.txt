@@ -1,4 +1,4 @@
-/home/yunle/Soft/clion-2018.2.5/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/yunle/ws/src/AutoCar/Localization/fast_ndt_slam
+/home/sin/soft/clion-2018.3.1/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/sin/lab_ws/fast_ndt/src/AutoCar/Localization/fast_ndt_slam
 -- Boost version: 1.58.0
 -- Found the following Boost libraries:
 --   system
@@ -10,10 +10,6 @@
 --   chrono
 --   atomic
 --   regex
--- Checking for module 'libopenni2'
---   No package 'libopenni2' found
--- Could NOT find OpenNI2 (missing: OPENNI2_LIBRARY OPENNI2_INCLUDE_DIRS) 
-** WARNING ** io features related to openni2 will be disabled
 ** WARNING ** io features related to pcap will be disabled
 ** WARNING ** io features related to png will be disabled
 -- The imported target "vtkRenderingPythonTkWidgets" references the file
@@ -34,10 +30,6 @@ but this file does not exist.  Possible reasons include:
    "/usr/lib/cmake/vtk-6.2/VTKTargets.cmake"
 but not all the files it references.
 
--- Checking for module 'libopenni2'
---   No package 'libopenni2' found
--- Could NOT find OpenNI2 (missing: OPENNI2_LIBRARY OPENNI2_INCLUDE_DIRS) 
-** WARNING ** visualization features related to openni2 will be disabled
 -- looking for PCL_COMMON
 -- looking for PCL_KDTREE
 -- looking for PCL_OCTREE
@@ -61,29 +53,23 @@ but not all the files it references.
 -- looking for PCL_MODELER
 -- looking for PCL_IN_HAND_SCANNER
 -- looking for PCL_POINT_CLOUD_EDITOR
--- Using CATKIN_DEVEL_PREFIX: /home/yunle/ws/src/AutoCar/Localization/fast_ndt_slam/cmake-build-debug/devel
--- Using CMAKE_PREFIX_PATH: /home/yunle/ws/devel;/opt/ros/kinetic
--- This workspace overlays: /home/yunle/ws/devel;/opt/ros/kinetic
--- Using PYTHON_EXECUTABLE: /usr/bin/python
--- Using Debian Python package layout
--- Using empy: /usr/bin/empy
--- Using CATKIN_ENABLE_TESTING: ON
--- Call enable_testing()
--- Using CATKIN_TEST_RESULTS_DIR: /home/yunle/ws/src/AutoCar/Localization/fast_ndt_slam/cmake-build-debug/test_results
--- Found gmock sources under '/usr/src/gmock': gmock will be built
--- Found gtest sources under '/usr/src/gmock': gtests will be built
--- Using Python nosetests: /usr/bin/nosetests-2.7
--- catkin 0.7.14
--- Using these message generators: gencpp;geneus;genlisp;gennodejs;genpy
--- Configuring done
-CMake Warning (dev) at CMakeLists.txt:131 (add_dependencies):
-  Policy CMP0046 is not set: Error on non-existent dependency in
-  add_dependencies.  Run "cmake --help-policy CMP0046" for policy details.
-  Use the cmake_policy command to set the policy and suppress this warning.
+CMake Error at CMakeLists.txt:20 (find_package):
+  By not providing "Findcatkin.cmake" in CMAKE_MODULE_PATH this project has
+  asked CMake to find a package configuration file provided by "catkin", but
+  CMake did not find one.
 
-  The dependency target "common_msgs_gencpp" of target "fast_ndt_slam_node"
-  does not exist.
-This warning is for project developers.  Use -Wno-dev to suppress it.
+  Could not find a package configuration file provided by "catkin" with any
+  of the following names:
 
--- Generating done
--- Build files have been written to: /home/yunle/ws/src/AutoCar/Localization/fast_ndt_slam/cmake-build-debug
+    catkinConfig.cmake
+    catkin-config.cmake
+
+  Add the installation prefix of "catkin" to CMAKE_PREFIX_PATH or set
+  "catkin_DIR" to a directory containing one of the above files.  If "catkin"
+  provides a separate development package or SDK, be sure it has been
+  installed.
+
+
+-- Configuring incomplete, errors occurred!
+See also "/home/sin/lab_ws/fast_ndt/src/AutoCar/Localization/fast_ndt_slam/cmake-build-debug/CMakeFiles/CMakeOutput.log".
+See also "/home/sin/lab_ws/fast_ndt/src/AutoCar/Localization/fast_ndt_slam/cmake-build-debug/CMakeFiles/CMakeError.log".

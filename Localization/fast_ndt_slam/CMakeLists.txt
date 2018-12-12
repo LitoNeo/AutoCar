@@ -11,11 +11,11 @@ find_package(PCL 1.7 REQUIRED)
 find_package(CUDA)
 if (CUDA_FOUND)
 	add_definitions(-DCUDA_FOUND)
-	include_directories(include)
+	include_directories(${CUDA_INCLUDE_DIRS})
 	link_directories(src/lib)
 endif ()
 find_package(Eigen3 REQUIRED)
-find_package(OpenCV REQUIRED)
+#find_package(OpenCV REQUIRED)
 
 find_package(catkin REQUIRED COMPONENTS
   nav_msgs

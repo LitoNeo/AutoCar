@@ -199,10 +199,10 @@ namespace FAST_NDT {
 
 
 		// #start 发布NDT性能相关的参数
-		common_msgs::AttrMsg attrMsg;
-		attrMsg.name = "ndt_attr";
-		attrMsg.UsedTime = float((t2 - t1) / 1000000.);
-		attr_pub.publish(attrMsg);
+		// common_msgs::AttrMsg attrMsg;
+		// attrMsg.name = "ndt_attr";
+		// attrMsg.UsedTime = float((t2 - t1) / 1000000.);
+		// attr_pub.publish(attrMsg);
 		// #end
 
 		// 定义并发布位置Pose
@@ -223,7 +223,8 @@ namespace FAST_NDT {
 			pubCounter = 10;
 			ROS_INFO("output map_msg_ptr");
 			sensor_msgs::PointCloud2::Ptr map_msg_ptr(new sensor_msgs::PointCloud2);
-			pcl::toROSMsg(*(localMap->map_ptr), *map_msg_ptr);
+			// pcl::toROSMsg(*(localMap->map_ptr), *map_msg_ptr);
+			pcl::toROSMsg(*(globalMap->map_ptr), *map_msg_ptr);
 			map_msg_ptr->header.frame_id = "map";
 			ndt_map_pub.publish(*map_msg_ptr);
 		}
